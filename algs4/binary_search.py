@@ -5,12 +5,12 @@
 *                https://algs4.cs.princeton.edu/11model/largeW.txt
 *                https://algs4.cs.princeton.edu/11model/largeT.txt
 *
-* % python binary_search.py tinyW.txt < tinyT.txt
+* % python3 binary_search.py files/tinyW.txt < files/tinyT.txt
 *  50
 *  99
 *  13
 *
-* % python binary_search.py largeW.txt < largeT.txt | more
+* % python3 binary_search.py files/largeW.txt < files/largeT.txt | more
 *  499569
 *  984875
 *  295754
