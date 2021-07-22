@@ -23,22 +23,34 @@
 
 
 class BinarySearch:
-    def index_of(self, arr, key):
+    """
+    A class used to implement the binary search algorithm
+
+    Methods
+    -------
+    rank(arr, key)
+        takes an integer target and a sorted array of int values as arguments and returns
+        the index of the target if it is present in the array, -1 otherwise.
+    """
+
+    def rank(self, arr: list[int], target: int) -> int:
         lo, hi = 0, len(arr) - 1
         while lo <= hi:
-            # key is in arr[lo..hi] or not present.
-            mid = lo + int((hi - lo) / 2)
-            if (key < arr[mid]):
-                hi = mid - 1
-            elif (key > arr[mid]):
+            # target is in arr[lo..hi] or not present.
+            mid = (lo + hi) // 2
+
+            if arr[mid] == target:
+                return mid
+            elif arr[mid] < target:
                 lo = mid + 1
             else:
-                return mid
+                hi = mid - 1
         return -1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import sys
+
     # read the integers from a file
     with open(sys.argv[1]) as f:
         whitelist = [int(i) for i in f]
@@ -48,5 +60,5 @@ if __name__ == '__main__':
     bs = BinarySearch()
     for line in sys.stdin:
         key = int(line)
-        if bs.index_of(whitelist, key) == -1:
+        if bs.rank(whitelist, key) == -1:
             print(key)
